@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SendCodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/send-sms', [SendCodeController::class, 'send'])->name('send.sms');
+Route::get('/recibe-sms/{code}', [SendCodeController::class, 'recibe'])->name('recibe.sms');
